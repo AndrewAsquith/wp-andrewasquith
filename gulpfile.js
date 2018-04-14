@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 
 var uglify = require('gulp-uglify');
 
-var conf = require('./gulpConfig.json');
+var conf = require('./gulp-config.json');
 var paths = conf.paths;
 
 gulp.task('sass', function () {
