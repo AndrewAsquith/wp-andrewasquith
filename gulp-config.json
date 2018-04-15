@@ -2,7 +2,9 @@
     "paths" : {
         "js": "./js",
         "css": "./css",
+        "font": "./font",
         "sass": "./sass",
+        "vendor": "./vendor",
         "node": "./node_modules/",
         "dist": "./dist"
       }
