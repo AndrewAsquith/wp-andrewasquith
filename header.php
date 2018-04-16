@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
 	<div class="container">
 		<header id="masthead" class="site-header">
 		<div class="row">
@@ -53,7 +53,7 @@
 
 
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
+	
 	<nav class="navbar navbar-expand-md">
 		<div class="container">
 
