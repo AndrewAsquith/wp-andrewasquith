@@ -1,9 +1,9 @@
 {
     "paths" : {
-        "build": "./andrewasquith",
-        "js": "./andrewasquith/js",
-        "css": "./andrewasquith/css",
-        "font": "./andrewasquith/font",
+        "build": "./build/andrewasquith",
+        "js": "./build/andrewasquith/js",
+        "css": "./build/andrewasquith/css",
+        "font": "./build/andrewasquith/font",
         "sass": "./sass",
         "vendor": "./vendor",
         "node": "./node_modules/",

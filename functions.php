@@ -18,7 +18,7 @@ require $includes_folder . 'setup.php';
 /**
  * Theme script and styleenqueues
  */
-require $includes_folder . 'enqueues.php';
+require $includes_folder . 'enqueue.php';
 
 /**
  * Widget setup

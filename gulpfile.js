@@ -153,7 +153,7 @@ gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist
         '!' + paths.css + '/theme.min.css.map'
     ];
 
-    return gulp.src(distFiles, { base: './' })
+    return gulp.src(distFiles, { base: './build/' })
         .pipe(zip('andrewasquith.zip'))
         .pipe(gulp.dest(paths.dist));
 
@@ -166,7 +166,7 @@ gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-
         '!' + paths.css + '/theme.css'
     ];
 
-    return gulp.src(distFiles, { base: './' })
+    return gulp.src(distFiles, { base: './build/' })
         .pipe(zip('andrewasquith.zip'))
         .pipe(gulp.dest(paths.dist));
 });
