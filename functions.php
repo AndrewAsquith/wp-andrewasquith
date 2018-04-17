@@ -16,6 +16,11 @@ $includes_folder = get_template_directory() . '/inc/';
 require $includes_folder . 'setup.php';
 
 /**
+ * Theme script and styleenqueues
+ */
+require $includes_folder . 'enqueues.php';
+
+/**
  * Widget setup
  */
 require $includes_folder . 'widgets.php';

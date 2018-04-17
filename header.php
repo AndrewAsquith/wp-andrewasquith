@@ -49,13 +49,9 @@
 		</div> <!-- row -->	
 		</header><!-- #masthead -->
 	</div> <!-- container -->
-
-
-
-
 	
-	<nav class="navbar navbar-expand-md">
-		<div class="container">
+	<div class="container">
+		<nav class="navbar navbar-expand-md navbar-light bg-light">
 
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -72,6 +68,5 @@
 					'walker'          => new WP_Bootstrap_Navwalker(),
 				)
 			); ?>
-
-		</div> <!-- container -->
-	</nav> <!-- site nav -->
+		</nav> <!-- site nav -->
+	</div> <!-- container -->

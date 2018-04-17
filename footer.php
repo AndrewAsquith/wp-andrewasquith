@@ -10,7 +10,7 @@
  */
 
 ?>
-	<div class="fluid-container">
+	<div class="container">
 		<div class="row">
 			<footer id="colophon" class="col-md-12 site-footer">
 				<div class="site-info">

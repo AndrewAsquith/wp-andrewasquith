@@ -2,3 +2,13 @@
 Underscores WordPress Starter Theme
 License: GNU General Public License v2 or later
 */
+@import "../../vendor/underscores/scss/mixins/mixins-master";
+@import "../../vendor/underscores/scss/variables-site/colors";
+@import "../../vendor/underscores/scss/variables-site/columns";
+@import "../../vendor/underscores/scss/media/galleries";
+@import "../../vendor/underscores/scss/modules/accessibility";
+@import "../../vendor/underscores/scss/modules/alignments";
+@import "../../vendor/underscores/scss/modules/clearings";
+@import "../../vendor/underscores/scss/site/primary/comments";
+@import "../../vendor/underscores/scss/site/primary/posts-and-pages";
+@import "../../vendor/underscores/scss/site/secondary/widgets";

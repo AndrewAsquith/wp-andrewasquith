@@ -14,7 +14,7 @@ function andrewasquith_scripts() {
 	wp_enqueue_style( 'andrewasquith-style', get_stylesheet_directory_uri() . '/css/theme.min.css', array(), $css_version );
 
     //need jquery for BS4
-    wp_enqueue_script('andrewasquith-scripts', get_template_directory() . '/js/theme.min.js', array('jquery'), $js_version);
+    wp_enqueue_script('andrewasquith-scripts', get_template_directory_uri() . '/js/theme.min.js', array('jquery'), $js_version);
 
 //	wp_enqueue_script( 'andrewasquith-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
