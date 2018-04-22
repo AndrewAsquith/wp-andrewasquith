@@ -26,5 +26,3 @@ function andrewasquith_custom_header_setup() {
 	) ) );
 }
 add_action( 'after_setup_theme', 'andrewasquith_custom_header_setup' );
-
-

@@ -10,25 +10,12 @@
  */
 
 ?>
-	<div class="container">
-		<div class="row">
-			<footer id="colophon" class="col-md-12 site-footer">
-				<div class="site-info">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'andrewasquith' ) ); ?>">
-						<?php
-						/* translators: %s: CMS name, i.e. WordPress. */
-						printf( esc_html__( 'Proudly powered by %s', 'andrewasquith' ), 'WordPress' );
-						?>
-					</a>
-					<span class="sep"> | </span>
-						<?php
-						/* translators: 1: Theme name, 2: Theme author. */
-						printf( esc_html__( 'Theme: %1$s by %2$s.', 'andrewasquith' ), 'andrewasquith', '<a href="http://goaa.ca/me">Andrew Asquith</a>' );
-						?>
-				</div><!-- .site-info -->
-			</footer><!-- #colophon -->
-		</div> <!-- row -->
-	</div> <!-- container -->
+	<footer id="colophon" class="bg-dark mt-5 site-footer">
+		<div class="text-center text-white pt-3">
+			&copy;<a href="<?php echo esc_url( __( 'https://goaa.ca/me', 'andrewasquith' ) ); ?>" class="text-white">
+			<?php esc_html_e('Andrew Asquith', 'andrewasquith');?></a>
+		</div>	
+	</footer><!-- #colophon -->
 </div> <!-- page -->
 <?php wp_footer(); ?>
 </body>
