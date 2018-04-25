@@ -1,4 +1,5 @@
 {
+    "themeZipName": "andrewasquith.zip",
     "paths" : {
         "build": "./build/andrewasquith",
         "js": "./build/andrewasquith/js",
@@ -8,5 +9,11 @@
         "vendor": "./vendor",
         "node": "./node_modules/",
         "dist": "./dist"
-      }
+      },
+    "docker" : {
+        "wpContainerName": "docker_wpdev_1",
+        "wpcli_image": "andrewasquith:wp-cli",
+        "themeFile": "/opt/andrewasquith.zip"
+    }
+    
 }

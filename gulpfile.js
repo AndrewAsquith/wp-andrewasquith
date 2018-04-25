@@ -9,12 +9,15 @@ var sequence = require('gulp-sequence');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var del = require('del');
-const zip = require('gulp-zip');
+var zip = require('gulp-zip');
 
 var uglify = require('gulp-uglify');
 
 var conf = require('./gulp-config.json');
 var paths = conf.paths;
+var docker = conf.docker;
+
+var exec = require('child_process').exec;
 
 gulp.task('sass', function () {
     var stream = gulp.src(paths.sass + '/*.scss')
@@ -154,7 +157,7 @@ gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist
     ];
 
     return gulp.src(distFiles, { base: './build/' })
-        .pipe(zip('andrewasquith.zip'))
+        .pipe(zip(conf.themeZipName))
         .pipe(gulp.dest(paths.dist));
 
 });
@@ -167,6 +170,24 @@ gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-
     ];
 
     return gulp.src(distFiles, { base: './build/' })
-        .pipe(zip('andrewasquith.zip'))
+        .pipe(zip(conf.themeZipName))
         .pipe(gulp.dest(paths.dist));
+});
+
+gulp.task('copy-docker', ['dist-dev'], function (callback) {
+    exec('docker cp ' + paths.dist + '/' + conf.themeZipName + ' '
+        + docker.wpContainerName + ':' + docker.themeFile, function (err, stdout, stderr) {
+            console.log(stdout);
+            console.log(stderr);
+            callback(err);
+        });
+});
+
+gulp.task('dist-docker', ['copy-docker'], function (callback) {
+    exec('docker run --volumes-from ' + docker.wpContainerName + ' --network container:' + docker.wpContainerName
+        + ' ' + docker.wpcli_image + ' theme install ' + docker.themeFile + ' --force --activate', function (err, stdout, stderr) {
+            console.log(stdout);
+            console.log(stderr);
+            callback(err);
+        });
 });
