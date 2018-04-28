@@ -3,6 +3,7 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
+var wpPot = require('gulp-wp-pot');
 
 var plumber = require('gulp-plumber');
 var sequence = require('gulp-sequence');
@@ -115,6 +116,29 @@ gulp.task('dist-fonts', function (callback) {
     return sequence('clean-fonts', 'fonts')(callback);
 });
 
+gulp.task('translate', function () {
+
+    var phpFiles = ['./*.php',
+        './inc/**/*.php',
+        './template-parts/**/*.php'];
+    return gulp.src(phpFiles)
+        .pipe(wpPot({
+            domain: 'andrewasquith',
+            package: 'Andrew Asquith'
+        }))
+        .pipe(gulp.dest(paths.languages + '/andrewasquith.pot'));
+});
+
+gulp.task('clean-languages', function() {
+    return del([paths.languages + '/**']).then(paths => {
+        console.log('Files and folders deleted:\n', paths.join('\n'));
+    });
+});
+
+gulp.task('dist-languages', function(callback) {
+    return sequence('clean-languages', 'translate')(callback);
+});
+
 gulp.task('copy-wp', function () {
     var wpFiles = [
         './style.css',
@@ -145,9 +169,9 @@ gulp.task('clean-dist', function () {
     });
 });
 
-gulp.task('clean', ['clean-css', 'clean-js', 'clean-fonts', 'clean-build', 'clean-dist']);
+gulp.task('clean', ['clean-css', 'clean-js', 'clean-fonts', 'clean-languages', 'clean-build', 'clean-dist']);
 
-gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-wp'], function () {
+gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp'], function () {
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',
@@ -162,7 +186,7 @@ gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist
 
 });
 
-gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-wp'], function () {
+gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp'], function () {
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',

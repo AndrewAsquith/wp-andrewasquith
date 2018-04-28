@@ -5,6 +5,7 @@
         "js": "./build/andrewasquith/js",
         "css": "./build/andrewasquith/css",
         "font": "./build/andrewasquith/font",
+        "languages": "./build/andrewasquith/languages",
         "sass": "./sass",
         "vendor": "./vendor",
         "node": "./node_modules/",
