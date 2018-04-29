@@ -26,8 +26,11 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
 	
 	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-	<div class="col-md-4 site-branding">
-				
+	
+	<div class="site-branding">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>		
 		<?php if (has_custom_logo()) :
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 			$logo_url = $image[0];
@@ -45,14 +48,11 @@
 			endif;
 		endif; ?>
 	</div><!-- .site-branding -->
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
 
 	<?php wp_nav_menu(
 		array(
 			'theme_location'  => 'primary',
-			'container_class' => 'col-md-8 collapse navbar-collapse',
+			'container_class' => 'collapse navbar-collapse',
 			'container_id'    => 'navbarNavDropdown',
 			'menu_class'      => 'navbar-nav  ml-auto',
 			'fallback_cb'     => '',
@@ -66,18 +66,16 @@
 			
 		<header id="masthead" class="site-header">
 			<?php
-			if (has_header_image()) : ?>
-				<div class="container-fluid header-image-container" id="header-container" style="background-image:url('<?php echo esc_url(get_header_image()); ?>');  ">
+			$header_image = andrewasquith_get_header_image();
+
+			if ($header_image) : ?>
+				<div class="container-fluid header-image-container d-flex align-items-center justify-content-center" id="header-container" style="background-image:url('<?php echo esc_url($header_image); ?>');  ">
 			<?php else : ?>
-				<div class="container-fluid header-no-image-container" id="header-container">
+				<div class="container-fluid header-no-image-container d-flex align-items-center justify-content-center" id="header-container">
 			<?php endif;?>				
-				<div class="row" >
-					<div class="col-md-6 col-offset-3 pt-5" id="site-description" >
 					<?php	$andrewasquith_description = get_bloginfo( 'description', 'display' );
 					if ( $andrewasquith_description || is_customize_preview() ) : ?>
-						<p class="site-description"><?php echo $andrewasquith_description; /* WPCS: xss ok. */ ?></p>
+						<p class="site-description text-center display-3 text-white "><?php echo $andrewasquith_description; /* WPCS: xss ok. */ ?></p>
 					<?php endif; ?>
-					</div><!-- #site-description -->
-				</div> <!-- .row -->	
 			</div><!-- #header-container -->		
 		</header><!-- #masthead -->

@@ -1,0 +1,16 @@
+.header-image-container {
+    background-size:cover; 
+    background-repeat:no-repeat; 
+    background-attachment: fixed;
+    height:30rem;
+}
+
+.header-no-image-container {
+    height:20rem;
+    background-color: $secondary;
+}
+
+.site-description {
+    text-shadow: 2px 2px 2px rgba(150, 150, 150, 1);
+}
+

@@ -7,11 +7,11 @@
  * @package andrewasquith
  */
 
-if ( ! is_active_sidebar( 'right-sidebar' ) ) {
+if ( ! is_active_sidebar( 'main-sidebar' ) ) {
 	return;
 }
 ?>
 
 <aside id="secondary" class="col-md-4 widget-area">
-	<?php dynamic_sidebar( 'right-sidebar' ); ?>
+	<?php dynamic_sidebar( 'main-sidebar' ); ?>
 </aside><!-- #secondary -->

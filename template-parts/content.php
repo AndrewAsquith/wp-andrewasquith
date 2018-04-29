@@ -29,7 +29,11 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php andrewasquith_post_thumbnail(); ?>
+	<?php 
+		if ((!is_singular()) || ( get_theme_mod( 'featured_image_as_header' ) == 0 )) {
+			andrewasquith_post_thumbnail(); 
+		}	
+	?>
 
 	<div class="entry-content">
 		<?php

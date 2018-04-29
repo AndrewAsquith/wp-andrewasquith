@@ -14,7 +14,11 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 	</header><!-- .entry-header -->
 
-	<?php andrewasquith_post_thumbnail(); ?>
+	<?php 
+		if ( get_theme_mod( 'featured_image_as_header' ) == 0 ) {
+			andrewasquith_post_thumbnail(); 
+		}	
+	?>
 
 	<div class="entry-content">
 		<?php

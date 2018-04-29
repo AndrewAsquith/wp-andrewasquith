@@ -120,7 +120,9 @@ gulp.task('translate', function () {
 
     var phpFiles = ['./*.php',
         './inc/**/*.php',
-        './template-parts/**/*.php'];
+        './template-parts/**/*.php',
+        './page-templates/**/*.php'];
+
     return gulp.src(phpFiles)
         .pipe(wpPot({
             domain: 'andrewasquith',
@@ -147,8 +149,10 @@ gulp.task('copy-wp', function () {
         './*.php',
         './inc/**/*',
         './template-parts/**/*',
+        './page-templates/**/*.php',
         './languages/**/*'
-    ]
+    ];
+    
     return gulp.src(wpFiles, { base: './' })
         .pipe(gulp.dest(paths.build));
 });

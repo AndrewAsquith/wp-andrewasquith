@@ -25,6 +25,26 @@ function andrewasquith_customize_register( $wp_customize ) {
 			'render_callback' => 'andrewasquith_customize_partial_blogdescription',
 		) );
 	}
+
+	$wp_customize->add_setting( 'featured_image_as_header', array(
+        'default'   => 1, // Set default value
+        'sanitize_callback' => 'esc_attr', // Sanitize input
+        )
+    );
+
+	$wp_customize->add_control( 
+        new WP_Customize_Control(
+            $wp_customize,
+            'featured_image_as_header', // Setting ID
+            array(
+                'label'     => __( 'Use Featured Image as Header', 'andrewasquith' ),
+                'section'   => 'header_image', // No hyphen
+                'settings'  => 'featured_image_as_header', // Setting ID
+                'type'      => 'checkbox',
+            )
+        )
+    );
+
 }
 add_action( 'customize_register', 'andrewasquith_customize_register' );
 
@@ -53,3 +73,14 @@ function andrewasquith_customize_preview_js() {
 	wp_enqueue_script( 'andrewasquith-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'andrewasquith_customize_preview_js' );
+
+
+function theme_name_custom_settings( $wp_customize ) {
+
+    
+
+    
+
+}
+
+add_action( 'customize_register', 'theme_name_custom_settings' );

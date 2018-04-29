@@ -14,10 +14,9 @@
 
 get_header();
 ?>
-	<div class="container" id="content">
+	<div class="container pt5" id="content">
 
-		<div class="row">
-			<div id="primary" class="col-md-8 content-area">
+			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 
 				<?php
@@ -30,14 +29,10 @@ get_header();
 					if ( comments_open() || get_comments_number() ) :
 						comments_template();
 					endif;
-
+			
 				endwhile; // End of the loop.
 				?>
-
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
-		</div> <!-- row -->
-
 	</div> <!-- container -->
 <?php get_footer(); 

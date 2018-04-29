@@ -14,11 +14,10 @@
 
 get_header();
 ?>
-	<div class="container" id="content">
+	<div class="container pt-5" id="content">
 
-		<div class="row">
 
-			<div id="primary" class="col-md-8 content-area">
+			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 
 				<?php
@@ -56,7 +55,6 @@ get_header();
 
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
 		</div> <!-- row -->
 	</div> <!-- container -->
 <?php get_footer(); 

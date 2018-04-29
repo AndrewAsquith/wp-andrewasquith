@@ -25,6 +25,10 @@ require $includes_folder . 'enqueue.php';
  */
 require $includes_folder . 'widgets.php';
 
+/**
+ * Custom Comments file.
+ */
+require $includes_folder . 'custom-comments.php';
 
 /**
  * Bootstrap custom nav walker
