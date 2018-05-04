@@ -10,17 +10,22 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php 
+		if ((!is_singular()) || ( get_theme_mod( 'featured_image_as_header' ) == 0 )) {
+			andrewasquith_post_thumbnail(); 
+		}	
+	?>
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="entry-title display-2 text-center">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title display-2 text-center"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta">
+			<div class="entry-meta ">
 				<?php
 				andrewasquith_posted_on();
 				andrewasquith_posted_by();
@@ -29,11 +34,7 @@
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<?php 
-		if ((!is_singular()) || ( get_theme_mod( 'featured_image_as_header' ) == 0 )) {
-			andrewasquith_post_thumbnail(); 
-		}	
-	?>
+
 
 	<div class="entry-content">
 		<?php
@@ -57,7 +58,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer d-flex">
 		<?php andrewasquith_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

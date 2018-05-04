@@ -13,7 +13,7 @@
       },
     "docker" : {
         "wpContainerName": "docker_wpdev_1",
-        "wpcli_image": "andrewasquith:wp-cli",
+        "wpcli_image": "andrewasquith/wp-cli",
         "themeFile": "/opt/andrewasquith.zip"
     }
     
