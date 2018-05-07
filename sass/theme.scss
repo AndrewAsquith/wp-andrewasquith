@@ -1,9 +1,10 @@
 @import "theme/variables"; //variables
 @import "theme/branding"; //branding section
 @import "theme/posts"; //blog post styles
+@import "theme/comments"; //comment styling
 
 
 @import "vendor/bootstrap4"; //bootstrap4 complete
-@import "vendor/underscores"; //underscores included styles
+//@import "vendor/underscores"; //underscores included styles
 
 @import "vendor/fontawesome5"; //fontawesome 5 free webfonts with css version

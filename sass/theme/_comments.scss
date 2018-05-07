@@ -1,0 +1,34 @@
+.comment-body {
+    border: 1px solid #eaeaea;
+    margin-bottom: 2rem !important;    
+    background-color: #ffffff;
+}
+
+.comment-metadata {
+    font-size: 0.75rem;
+    color: $secondary;  
+    padding-left: ($grid-gutter-width / 2);
+}
+
+.comment-content {
+    padding-top: 1rem !important;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+}
+
+.reply {
+    font-size: 0.75rem;
+    color: $secondary;  
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2); 
+}
+
+.comments-area ul, .comments-area ol {
+    list-style:none; 
+    padding-left:20px;
+}
+
+.author {
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}

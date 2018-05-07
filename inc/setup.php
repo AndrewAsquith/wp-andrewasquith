@@ -46,7 +46,8 @@ if ( ! function_exists( 'andrewasquith_setup' ) ) :
 		 */
 		add_theme_support( 'html5', array(
 			'search-form',
-			'comment-form',
+			// we want html5 validation to work
+			// 'comment-form',  
 			'comment-list',
 			'gallery',
 			'caption',

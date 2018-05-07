@@ -62,7 +62,7 @@
 		); ?>
 	</nav> <!-- site nav -->
 			
-	<div id="page" class="site">
+	<div id="page" class="site bg-light">
 			
 		<header id="masthead" class="site-header">
 			<?php

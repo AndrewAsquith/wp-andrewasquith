@@ -15,17 +15,18 @@
 			andrewasquith_post_thumbnail(); 
 		}	
 	?>
+	<div id="post-container-<?php the_ID(); ?>"  class="post-container col pb-4">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title display-2 text-center">', '</h1>' );
+			the_title( '<h1 class="entry-title display-3 text-center">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title display-2 text-center"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="entry-title display-3 text-center"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
 
 		if ( 'post' === get_post_type() ) :
 			?>
-			<div class="entry-meta ">
+			<div class="entry-meta pb-3 pt-2">
 				<?php
 				andrewasquith_posted_on();
 				andrewasquith_posted_by();
@@ -61,4 +62,5 @@
 	<footer class="entry-footer d-flex">
 		<?php andrewasquith_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
+	</div><!-- .post-container -->
 </article><!-- #post-<?php the_ID(); ?> -->

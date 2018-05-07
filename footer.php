@@ -10,7 +10,7 @@
  */
 
 ?>
-	<footer id="colophon" class="bg-dark mt-5 site-footer">
+	<footer id="colophon" class="bg-dark site-footer">
 		<div class="text-center text-white pt-3">
 			&copy;<a href="<?php echo esc_url( __( 'https://goaa.ca/me', 'andrewasquith' ) ); ?>" class="text-white">
 			<?php esc_html_e('Andrew Asquith', 'andrewasquith');?></a>

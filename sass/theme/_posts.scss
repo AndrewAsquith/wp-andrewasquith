@@ -1,7 +1,11 @@
 .cat-links {
     font-size: 0.75rem;
     color: $secondary;        
-    
+}
+
+.entry-meta {
+    font-size: 0.75rem;
+    color: $secondary;    
 }
 
 .tags-links {
@@ -26,4 +30,21 @@
     padding-left: 1rem !important;
     margin-left: 1rem !important;                
     border-left: solid 1px $tertiary;
+}
+
+.post {
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+}
+
+.entry-title a:hover {
+    text-decoration: none;
+}
+
+.wp-post-image {
+    opacity: 0.9;
+}
+
+.wp-post-image:hover {
+    opacity: 1.0;
 }

@@ -3,3 +3,5 @@ $fa-font-path:                "../font" !default;
 $primary: #0d47a1;
 $secondary: #002171;
 $tertiary: #5472d3;
+
+$grid-gutter-width: 30px; //we define it here since we use it, even though it's Bootstrap default
