@@ -147,3 +147,31 @@ if ( ! function_exists( 'andrewasquith_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+if ( ! function_exists ( 'andrewasquith_post_nav' ) ) :
+	function andrewasquith_post_nav() {
+		// Don't print empty markup if there's nowhere to navigate.
+		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
+		$next     = get_adjacent_post( false, '', false );
+
+		if ( ! $next && ! $previous ) {
+			return;
+		}
+		?>
+				<nav class="container navigation post-navigation mt-3">
+					<h2 class="sr-only"><?php _e( 'Post navigation', 'andrewasquith' ); ?></h2>
+					<div class="row nav-links d-flex justify-content-between">
+						<?php
+
+							if ( get_previous_post_link() ) {
+								previous_post_link( '<span class="nav-previous text-left">%link</span>', _x( '<i class="fa fa-angle-left"></i>&nbsp;%title', 'Previous post link', 'andrewasquith' ) );
+							}
+							if ( get_next_post_link() ) {
+								next_post_link( '<span class="nav-next ml-auto text-right">%link</span>',     _x( '%title&nbsp;<i class="fa fa-angle-right"></i>', 'Next post link', 'andrewasquith' ) );
+							}
+						?>
+					</div><!-- .nav-links -->
+				</nav><!-- .navigation -->
+
+		<?php
+	}
+endif;

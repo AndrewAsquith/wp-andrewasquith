@@ -25,7 +25,14 @@
 
 .comments-area ul, .comments-area ol {
     list-style:none; 
-    padding-left:20px;
+}
+
+.comment-list {
+    padding-left: 0px;    
+}
+
+.comments-area .children {
+    padding-left: 1rem;
 }
 
 .author {
