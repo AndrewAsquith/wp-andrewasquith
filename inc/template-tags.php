@@ -13,9 +13,9 @@ if ( ! function_exists( 'andrewasquith_posted_on' ) ) :
 	 */
 	function andrewasquith_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
-		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
-		}
+		//if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		//	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
+		//}
 
 		$time_string = sprintf( $time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
@@ -74,20 +74,13 @@ if ( ! function_exists( 'andrewasquith_entry_footer' ) ) :
 		}
 
 		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<span class="comments-link">';
-			comments_popup_link(
-				sprintf(
-					wp_kses(
-						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'andrewasquith' ),
-						array(
-							'span' => array(
-								'class' => array(),
-							),
-						)
-					),
-					get_the_title()
-				)
+			echo '<span class="comments-link asdf">';
+			comments_popup_link( 
+				__( 'Post a Comment', 'andrewasquith' ), 
+				__( '1 Comment', 'andrewasquith' ), 
+				__( '% Comments', 'andrewasquith' ),
+				$css_class,
+				__( 'Comments are Closed', 'andrewasquith' )
 			);
 			echo '</span>';
 		}
@@ -159,19 +152,32 @@ if ( ! function_exists ( 'andrewasquith_post_nav' ) ) :
 		?>
 				<nav class="container navigation post-navigation mt-3">
 					<h2 class="sr-only"><?php _e( 'Post navigation', 'andrewasquith' ); ?></h2>
-					<div class="row nav-links d-flex justify-content-between">
-						<?php
+					<div class="row nav-links d-flex justify-content-between mt-3 mb-3 p-3">
+						
+						<?php  if ($previous) : ?>
+						<div id="nav-previous">
+							
+							<div class="d-flex flex-column">
+							<a href="<?php echo get_permalink( $previous->ID ); ?>">
+							<h4 class="nav-previous-header"><i class="pr-2 fa fa-arrow-left align-self-center"></i>Previous Post</h4>
+							<h6 class="nav-previous-title"><?php echo get_the_title( $previous->ID ); ?></span></h6></a>
+							</div>
+						</div> <!-- #nav-previous -->
+						<?php endif; ?>
+						
 
-							if ( get_previous_post_link() ) {
-								previous_post_link( '<span class="nav-previous text-left">%link</span>', _x( '<i class="fa fa-angle-left"></i>&nbsp;%title', 'Previous post link', 'andrewasquith' ) );
-							}
-							if ( get_next_post_link() ) {
-								next_post_link( '<span class="nav-next ml-auto text-right">%link</span>',     _x( '%title&nbsp;<i class="fa fa-angle-right"></i>', 'Next post link', 'andrewasquith' ) );
-							}
-						?>
+						<?php  if ($next) : ?>
+						<div id="nav-next" class="ml-auto">
+							
+							<div class="d-flex flex-column text-right">
+							<a href="<?php echo get_permalink( $next->ID ); ?>">
+							<h4 class="nav-next-header">Next Post<i class="pl-2 fa fa-arrow-right align-self-center"></i></h4>
+							<h6 class="nav-next-title"><?php echo get_the_title( $next->ID ); ?></h6></a>
+							</div>
+						</div> <!-- #nav-next -->
+						<?php endif; ?>
 					</div><!-- .nav-links -->
 				</nav><!-- .navigation -->
-
 		<?php
 	}
 endif;

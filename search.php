@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-	<div class="container" id="content">
+	<div class="container pt-5 pb-5" id="content">
 
 		<div class="row">
 			<section id="primary" class="col-md-8 content-area">

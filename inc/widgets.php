@@ -9,10 +9,10 @@ function andrewasquith_widgets_init() {
 		'name'          => esc_html__( 'Main Sidebar', 'andrewasquith' ),
 		'id'            => 'main-sidebar',
 		'description'   => esc_html__( 'Add widgets here.', 'andrewasquith' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_widget' => '<section id="%1$s" class="mb-4 card widget %2$s">',
+		'after_widget'  => '</div></section>',
+		'before_title'  => '<h2 class="widget-title card-header">',
+		'after_title'   => '</h2><div class="card-body">',
 	) );
 }
 add_action( 'widgets_init', 'andrewasquith_widgets_init' );

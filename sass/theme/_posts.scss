@@ -48,3 +48,19 @@
 .wp-post-image:hover {
     opacity: 1.0;
 }
+
+.nav-links {
+    border: 1px solid #eaeaea;
+    background-color: #ffffff;
+}
+
+@include media-breakpoint-down(sm) {
+    .nav-previous-title, .nav-next-title {
+        display:none;
+    }
+
+    .nav-previous-header, .nav-next-header {
+        font-size: 1rem;
+    }
+}
+

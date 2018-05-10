@@ -9,13 +9,13 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('mb-4'); ?>>
 	<?php 
 		if ((!is_singular()) || ( get_theme_mod( 'featured_image_as_header' ) == 0 )) {
 			andrewasquith_post_thumbnail(); 
 		}	
 	?>
-	<div id="post-container-<?php the_ID(); ?>"  class="post-container col pb-4">
+	<div id="post-container-<?php the_ID(); ?>" class="post-container col pb-4">
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
