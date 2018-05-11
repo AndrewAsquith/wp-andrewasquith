@@ -7,7 +7,7 @@
 
 ?>
 <form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search" class="form">
-	<label class="screen-reader-text" for="s"><?php esc_html_e( 'Search', 'andrewasquith' ); ?></label>
+	<label class="" for="s"><?php esc_html_e( 'Search', 'andrewasquith' ); ?></label>
 	<div class="input-group">
 		<input class="form-control" id="s" name="s" type="text"
 			placeholder="<?php esc_attr_e( 'Search &hellip;', 'andrewasquith' ); ?>" value="<?php the_search_query(); ?>">

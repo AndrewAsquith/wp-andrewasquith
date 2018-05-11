@@ -89,7 +89,7 @@ if ( ! function_exists( 'andrewasquith_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'andrewasquith' ),
+					__( 'Edit <span class="sr-only">%s</span>', 'andrewasquith' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -119,13 +119,13 @@ if ( ! function_exists( 'andrewasquith_post_thumbnail' ) ) :
 		if ( is_singular() ) :
 			?>
 
-			<div class="post-thumbnail">
+			<div class="post-thumbnail text-center d-block">
 				<?php the_post_thumbnail('post-thumbnail', array('class' => 'img-fluid')); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true">
+		<a class="post-thumbnail text-center d-block" href="<?php the_permalink(); ?>" aria-hidden="true">
 			<?php
 			the_post_thumbnail( 'post-thumbnail', array(
 				'class' => 'img-fluid',

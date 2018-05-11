@@ -23,7 +23,7 @@
 
 <body <?php body_class(); ?>>
 
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
+	<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
 	
 	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
 	

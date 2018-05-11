@@ -35,3 +35,29 @@ function andrewasquith_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'andrewasquith_pingback_header' );
+
+
+/**
+ * Filter the "read more" excerpt string link to the post.
+ *
+ * @param string $more "Read more" excerpt string.
+ * @return string (Maybe) modified "read more" excerpt string.
+ */
+function andrewasquith_excerpt_more( $more ) {
+    return sprintf( '<a class="pl-3 read-more" href="%1$s">%2$s</a>',
+        get_permalink( get_the_ID() ),
+        __( 'Read More', 'andrewasquith' )
+    );
+}
+add_filter( 'excerpt_more', 'andrewasquith_excerpt_more' );
+
+/**
+ *  Remove the anchor from the read more link
+ *  @param string $link the link used for the read more
+ *  @return string modified link without the anchor
+ */
+function andrewasquith_remove_more_link_scroll( $link ) {
+	$link = preg_replace( '|#more-[0-9]+|', '', $link );
+	return $link;
+}
+add_filter( 'the_content_more_link', 'andrewasquith_remove_more_link_scroll' );

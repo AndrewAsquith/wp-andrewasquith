@@ -1,0 +1,33 @@
+.alignleft {
+    display: inline;
+    float: left;
+    margin-right: 1.5rem; 
+}
+
+  
+  .alignright {
+    display: inline;
+    float: right;
+    margin-left: 1.5rem; 
+}
+  
+  .aligncenter {
+    margin: 0px auto; 
+}
+ 
+.entry-content {
+    @include clearfix;
+}
+  
+  img.wp-post-image,
+  article img,
+  figure,
+  img,
+  #secondary img {
+    max-width: 100%;
+    height: auto; 
+}
+
+pre {
+    white-space:pre-wrap;
+}
