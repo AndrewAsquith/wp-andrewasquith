@@ -1,0 +1,26 @@
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+
+		//only 3 columns max, anything more than that is ugly and this is probably better left to a plugin
+		//dedicated to providing image gallery functionality
+		.gallery-columns-1 & {
+			max-width: 100%;
+		}
+
+		.gallery-columns-2 & {
+			max-width: 50%;
+		}
+
+		.gallery-columns-3 &, .gallery-columns-4 &, .gallery-columns-5 &,
+		.gallery-columns-6 &, .gallery-columns-7 &, .gallery-columns-8 &,
+		.gallery-columns-9 & {
+			max-width: 33.3%;
+		}
+}
+
+.gallery-caption {
+	display: block;
+}

@@ -1,33 +1,72 @@
 .alignleft {
-    display: inline;
+   // display: inline;
     float: left;
     margin-right: 1.5rem; 
 }
 
-  
-  .alignright {
-    display: inline;
+.alignright {
+  //  display: inline;
     float: right;
     margin-left: 1.5rem; 
 }
   
-  .aligncenter {
+.aligncenter {
     margin: 0px auto; 
 }
  
 .entry-content {
     @include clearfix;
 }
-  
-  img.wp-post-image,
-  article img,
-  figure,
-  img,
-  #secondary img {
+
+iframe {
+    max-width: 100%;
+}
+
+img.wp-post-image,
+article img,
+figure,
+img,
+#secondary img {
     max-width: 100%;
     height: auto; 
 }
 
 pre {
     white-space:pre-wrap;
+}
+
+.page-links {
+	font-size: 0.875rem;
+	font-weight: 800;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid #eaeaea;
+}
+
+.page-links .page-number {
+	display: inline-block;
+	padding: 0.5rem 1rem;
+}
+
+.page-links a {
+	display: inline-block;
+}
+
+//only show the bottom border where there's no entry-footer
+.post-container .page-links {
+    border-bottom: 1px solid #eaeaea;    
+}
+
+
+//remove this when bootstrap makes these scale better
+@include media-breakpoint-down(sm) {
+    .display-3 {
+        font-size: 3.5rem;
+    }
+
+    .display-4 {
+        font-size: 3rem;
+    }
 }

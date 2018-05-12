@@ -181,3 +181,35 @@ if ( ! function_exists ( 'andrewasquith_post_nav' ) ) :
 		<?php
 	}
 endif;
+
+if ( ! function_exists ( 'andrewasquith_page_nav' ) ) :
+	function andrewasquith_page_nav() {
+		// Don't print empty markup if there's nowhere to navigate.
+		// on author/archive etc these are the reverse of what you'd expect
+		$previous = get_next_posts_link('<h4 class="nav-previous-header"><i class="pr-2 fa fa-arrow-left align-self-center"></i>Older</h4>');
+		$next     = get_previous_posts_link('<h4 class="nav-next-header">Newer<i class="pl-2 fa fa-arrow-right align-self-center"></i></h4>');
+
+		if ( ! $next && ! $previous ) {
+			return;
+		}
+		?>
+				<nav class="container navigation post-navigation mt-3">
+					<h2 class="sr-only"><?php _e( 'Post navigation', 'andrewasquith' ); ?></h2>
+					<div class="row nav-links d-flex justify-content-between mt-3 mb-3 p-3">
+						
+						<?php  if ($previous) : ?>
+						<div id="nav-previous">
+							<?php echo $previous; ?>
+						</div> <!-- #nav-previous -->
+						<?php endif; ?>
+
+						<?php  if ($next) : ?>
+						<div id="nav-next" class="ml-auto">
+							<?php echo $next; ?>
+						</div> <!-- #nav-next -->
+						<?php endif; ?>
+					</div><!-- .nav-links -->
+				</nav><!-- .navigation -->
+		<?php
+	}
+endif;

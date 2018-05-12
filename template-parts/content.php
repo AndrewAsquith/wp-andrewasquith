@@ -52,13 +52,16 @@
 			get_the_title()
 		) );
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'andrewasquith' ),
-			'after'  => '</div>',
-		) );
 		?>
 	</div><!-- .entry-content -->
-
+	<?php 	wp_link_pages(
+			array(
+				'before'      => '<div class="page-links text-center">' . __( 'Pages:', 'andrewasquith' ),
+				'after'       => '</div>',
+				'link_before' => '<span class="page-number">',
+				'link_after'  => '</span>',
+			));
+	?>
 	<footer class="entry-footer d-flex">
 		<?php andrewasquith_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
