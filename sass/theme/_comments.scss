@@ -31,6 +31,15 @@
     padding-left: 0px;    
 }
 
+.comments-area {
+    border-top: 1px dashed $primary;
+    margin-top: 1rem;
+}
+
+.comments-respond {
+    margin-bottom: 1rem;
+}
+
 .comments-area .children {
     padding-left: 1rem;
 }
@@ -38,4 +47,8 @@
 .author {
     text-transform: capitalize;
     font-size: 0.9rem;
+}
+
+.comments-area, .comment-respond, .comments-title {
+    margin-top: 1.5rem !important;
 }

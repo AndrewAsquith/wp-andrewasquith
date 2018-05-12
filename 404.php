@@ -9,12 +9,12 @@
 
 get_header();
 ?>
-				<main id="main" class="site-main container pt-5 pb-5">
+				<main id="main" class="site-main container pt-5">
 
 					<section class="error-404 not-found row d-flex">
 						
 						<div class="col-md-2 d-none d-md-block text-right align-self-center">
-							<span class="p-2 bg-white border border-warning rounded error-code display-4"><?php _e( '404', 'andrewasquith' ) ?></span>
+							<span class="p-2 bg-white border border-primary rounded error-code display-4"><?php _e( '404', 'andrewasquith' ) ?></span>
 						</div>
 						<div class="d-flex flex-column col-md-10">
 						<header class="page-header ">
