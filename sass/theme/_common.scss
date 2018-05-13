@@ -35,6 +35,32 @@ pre {
     white-space:pre-wrap;
 }
 
+blockquote {
+    font-style: italic;
+    padding-left: 0.5rem;
+    position: relative;
+    border-left:1rem solid $primary;
+}
+     
+blockquote cite, cite {
+    font-size: 0.85rem;;
+    display: block;
+    margin-top: 0.3rem;
+    
+}
+      
+blockquote cite:before {
+    content: "\2014 \2009";
+}
+
+/* code {
+    color: $secondary;
+    display:block;
+    border: 1px solid $primary;
+    border-left:1rem solid $primary;
+    padding: 1rem 0.8rem 1rem 1.2rem;
+} */
+
 .page-links {
 	font-size: 0.875rem;
 	font-weight: 800;

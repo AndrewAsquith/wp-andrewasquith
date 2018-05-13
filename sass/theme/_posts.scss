@@ -37,16 +37,12 @@
     background-color: #ffffff;
 }
 
+.entry-title {
+    word-wrap: break-word;
+}
+
 .entry-title a:hover {
     text-decoration: none;
-}
-
-.wp-post-image {
-    opacity: 0.9;
-}
-
-.wp-post-image:hover {
-    opacity: 1.0;
 }
 
 .nav-links {
