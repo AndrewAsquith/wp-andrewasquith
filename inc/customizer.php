@@ -77,10 +77,6 @@ add_action( 'customize_preview_init', 'andrewasquith_customize_preview_js' );
 
 function theme_name_custom_settings( $wp_customize ) {
 
-    
-
-    
-
 }
 
 add_action( 'customize_register', 'theme_name_custom_settings' );

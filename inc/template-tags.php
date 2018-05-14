@@ -140,7 +140,13 @@ if ( ! function_exists( 'andrewasquith_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+
+
+
 if ( ! function_exists ( 'andrewasquith_post_nav' ) ) :
+	/**
+	 * Function to print the navigation amongst pages in an entry
+	 */
 	function andrewasquith_post_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
@@ -183,6 +189,10 @@ if ( ! function_exists ( 'andrewasquith_post_nav' ) ) :
 endif;
 
 if ( ! function_exists ( 'andrewasquith_page_nav' ) ) :
+
+	/**
+	 * Function to print the page navigation on post list pages
+	 */
 	function andrewasquith_page_nav() {
 		// Don't print empty markup if there's nowhere to navigate.
 		// on author/archive etc these are the reverse of what you'd expect
