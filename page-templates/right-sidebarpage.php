@@ -7,7 +7,7 @@
 
 get_header();
 ?>
-	<div class="container pt-5" id="content">
+	<div class="container pt-4" id="content">
 
 		<div class="row">
 

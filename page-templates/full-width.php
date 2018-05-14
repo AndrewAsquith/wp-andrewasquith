@@ -7,7 +7,7 @@
 
 get_header();
 ?>
-	<div class="container-fluid pt-5" id="content">
+	<div class="container-fluid pt-4" id="content">
 
 
 			<div id="primary" class="content-area">
