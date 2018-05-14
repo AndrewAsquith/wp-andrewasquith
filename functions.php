@@ -16,6 +16,11 @@ $includes_folder = get_template_directory() . '/inc/';
 require $includes_folder . 'setup.php';
 
 /**
+ * WP-Emoji Cleanup
+ */
+require $includes_folder . 'remove-wpemoji.php';
+
+/**
  * Theme script and styleenqueues
  */
 require $includes_folder . 'enqueue.php';
