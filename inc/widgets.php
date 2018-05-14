@@ -14,5 +14,15 @@ function andrewasquith_widgets_init() {
 		'before_title'  => '<h2 class="widget-title card-header">',
 		'after_title'   => '</h2><div class="card-body">',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Page Sidebar', 'andrewasquith' ),
+		'id'            => 'page-sidebar',
+		'description'   => esc_html__( 'Add widgets here.', 'andrewasquith' ),
+		'before_widget' => '<section id="%1$s" class="mb-4 card widget %2$s">',
+		'after_widget'  => '</div></section>',
+		'before_title'  => '<h2 class="widget-title card-header">',
+		'after_title'   => '</h2><div class="card-body">',
+	) );
 }
 add_action( 'widgets_init', 'andrewasquith_widgets_init' );
