@@ -16,7 +16,6 @@ get_header();
 ?>
 	<div class="container pt-5" id="content">
 
-
 			<div id="primary" class="content-area">
 				<main id="main" class="site-main">
 
@@ -45,7 +44,7 @@ get_header();
 					endwhile;
 
 					//the_posts_navigation();
-					
+					andrewasquith_page_nav();
 
 				else :
 
