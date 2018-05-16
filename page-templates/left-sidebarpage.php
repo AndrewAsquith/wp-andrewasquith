@@ -8,9 +8,7 @@
 get_header();
 ?>
 	<div class="container pt-4" id="content">
-
 		<div class="row d-flex">
-
 			<div id="primary" class="col-md-8 order-md-1 order-sm-0 content-area">
 				<main id="main" class="site-main">
 
@@ -46,7 +44,6 @@ get_header();
 
 				endif;
 				?>
-
 				</main><!-- #main -->
             </div><!-- #primary -->
 			<?php get_sidebar('page'); ?>

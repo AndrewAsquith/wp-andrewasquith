@@ -55,6 +55,5 @@ get_header();
 
 				</main><!-- #main -->
 			</div><!-- #primary -->
-		</div> <!-- row -->
 	</div> <!-- container -->
 <?php get_footer(); 

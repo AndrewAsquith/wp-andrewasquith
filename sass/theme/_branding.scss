@@ -2,7 +2,13 @@
     background-size:cover; 
     background-repeat:no-repeat; 
     background-attachment: fixed;
-    height:30rem;
+    
+    @include media-breakpoint-down(sm) {
+        height:25rem;
+    }
+    @include media-breakpoint-up(md) {
+        height:35rem;
+    }
 }
 
 .header-no-image-container {

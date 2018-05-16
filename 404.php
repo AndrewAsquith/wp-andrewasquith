@@ -33,6 +33,5 @@ get_header();
 					<?php get_search_form(); ?>
 					</section><!-- .error-404 -->
 				</main><!-- #main -->
-			
 	</div> <!-- container -->
 <?php get_footer(); 
