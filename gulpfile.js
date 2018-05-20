@@ -36,9 +36,21 @@ gulp.task('sass', function () {
     return stream;
 });
 
-gulp.task('minify-css', function () {
-    return gulp.src(paths.css + '/theme.css')
+gulp.task('animate_css', function() {
+    return gulp.src(paths.vendor + '/animate.css/**/*.css')
+
+    .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(concat('animate.css'))
+        .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+        .pipe(gulp.dest(paths.css));
+});
+
+gulp.task('minify-css',['animate_css'], function () {
+    var cssFiles = [paths.css + '/theme.css', paths.css + '/animate.css'];
+
+    return gulp.src(cssFiles)
         .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(concat('theme.css'))
         .pipe(cleanCSS({ compatibility: '*' }))
         .pipe(plumber({
             errorHandler: function (err) {
@@ -181,6 +193,7 @@ gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist
         '!' + paths.js + '/theme.js',
         '!' + paths.js + '/theme.min.js.map',
         '!' + paths.css + '/theme.css',
+        '!' + paths.css + '/animate.css',
         '!' + paths.css + '/theme.min.css.map'
     ];
 
@@ -194,7 +207,8 @@ gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',
-        '!' + paths.css + '/theme.css'
+        '!' + paths.css + '/theme.css',
+        '!' + paths.css + '/animate.css'
     ];
 
     return gulp.src(distFiles, { base: './build/' })
