@@ -25,7 +25,7 @@
 
 	<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
 	
-	<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
 	
 	<div class="site-branding">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,6 +52,7 @@
 	<?php wp_nav_menu(
 		array(
 			'theme_location'  => 'primary',
+			'depth'	          => 2, 
 			'container_class' => 'collapse navbar-collapse',
 			'container_id'    => 'navbarNavDropdown',
 			'menu_class'      => 'navbar-nav  ml-auto',
@@ -75,7 +76,7 @@
 			<?php endif;?>				
 					<?php	$andrewasquith_description = get_bloginfo( 'description', 'display' );
 					if ( $andrewasquith_description || is_customize_preview() ) : ?>
-						<p class="site-description text-center display-3 text-white "><?php echo $andrewasquith_description; /* WPCS: xss ok. */ ?></p>
+						<p class="site-description animated flipInX text-center display-3 text-white"><?php echo $andrewasquith_description; /* WPCS: xss ok. */ ?></p>
 					<?php endif; ?>
 			</div><!-- #header-container -->		
 		</header><!-- #masthead -->
