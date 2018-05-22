@@ -32,7 +32,9 @@ if ( ! function_exists( 'andrewasquith_comment_form_fields' ) ) {
 			            '<input class="form-control" id="email" name="email" ' . ( $html5 ? 'type="email"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . '></div>',
 			'url'    => '<div class="form-group comment-form-url"><label for="url">' . __( 'Website',
 					'andrewasquith' ) . '</label> ' .
-			            '<input class="form-control" id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30"></div>',
+						'<input class="form-control" id="url" name="url" ' . ( $html5 ? 'type="url"' : 'type="text"' ) . ' value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30"></div>',
+			'cookies' => '<div class="form-group form-check comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="form-check-input" type="checkbox" value="yes"' . $consent . ' />' .
+						'<label for="wp-comment-cookies-consent" class="form-check-label">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></div>',			
 		);
 
 		return $fields;
