@@ -14,6 +14,7 @@
 		<div class="text-center text-white pt-3">
 			&copy;<a href="<?php echo esc_url( __( 'https://goaa.ca/me', 'andrewasquith' ) ); ?>" class="text-white">
 			<?php esc_html_e('Andrew Asquith', 'andrewasquith');?></a>
+			 | <a href="<?php echo esc_url(get_privacy_policy_url()); ?>" class="text-white">Privacy Policy</a>
 		</div>	
 	</footer><!-- #colophon -->
 </div> <!-- page -->
