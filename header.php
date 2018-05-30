@@ -26,7 +26,7 @@
 	<a class="skip-link sr-only" href="#content"><?php esc_html_e( 'Skip to content', 'andrewasquith' ); ?></a>
 	
 	<nav class="navbar navbar-expand-md navbar-light bg-light">
-	
+	<div class="container-fluid">
 	<div class="site-branding">
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -61,6 +61,7 @@
 			'walker'          => new WP_Bootstrap_Navwalker(),
 			)
 		); ?>
+	</div> <!-- nav container -->
 	</nav> <!-- site nav -->
 			
 	<div id="page" class="site bg-light">
