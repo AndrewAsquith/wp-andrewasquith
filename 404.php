@@ -9,7 +9,7 @@
 
 get_header();
 ?>
-				<main id="main" class="site-main container pt-5">
+				<main id="main" class="site-main container pt-5 pb-5">
 
 					<section class="error-404 not-found row d-flex">
 						
