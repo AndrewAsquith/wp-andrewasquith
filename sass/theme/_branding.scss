@@ -1,7 +1,10 @@
 .header-image-container {
     background-size: cover; 
     background-repeat: no-repeat; 
+/*
+    IOS doesn't like this with size - cover
     background-attachment: fixed;
+*/
     background-position: center;
     
     @include media-breakpoint-down(sm) {
