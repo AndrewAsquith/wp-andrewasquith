@@ -4,14 +4,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var cleanCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 var wpPot = require('gulp-wp-pot');
-
-var plumber = require('gulp-plumber');
-var sequence = require('gulp-sequence');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var del = require('del');
 var zip = require('gulp-zip');
-
 var uglify = require('gulp-uglify');
 
 var conf = require('./gulp-config.json');
@@ -20,48 +16,40 @@ var docker = conf.docker;
 
 var exec = require('child_process').exec;
 
+
 gulp.task('sass', function () {
     var stream = gulp.src(paths.sass + '/*.scss')
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.log(err);
-                this.emit('end');
-            }
-        }))
-        .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(sass({ errLogToConsole: true }))
+        
+        .pipe(sourcemaps.init())
+        .pipe(sass())
         .pipe(autoprefixer('last 2 versions'))
-        .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.css))
     return stream;
 });
 
 gulp.task('animate_css', function() {
     return gulp.src(paths.vendor + '/animate.css/**/*.css')
-
     .pipe(sourcemaps.init({ loadMaps: true }))
         .pipe(concat('animate.css'))
-        .pipe(sourcemaps.write(undefined, { sourceRoot: null }))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.css));
 });
 
-gulp.task('minify-css',['animate_css'], function () {
+gulp.task('minify-css',gulp.series('sass','animate_css', function minify_css () {
     var cssFiles = [paths.css + '/theme.css', paths.css + '/animate.css'];
 
-    return gulp.src(cssFiles)
-        .pipe(sourcemaps.init({ loadMaps: true }))
+    return gulp.src(cssFiles )
+        
         .pipe(concat('theme.css'))
-        .pipe(cleanCSS({ compatibility: '*' }))
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.log('Error: ' + err);
-                this.emit('end');
-            }
-        }))
-        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(cleanCSS())
+
+        .pipe(rename({ extname: '.min.css' }))
         .pipe(sourcemaps.write('./'))
+      
         .pipe(gulp.dest(paths.css));
-});
+}));
 
 gulp.task('clean-css', function () {
     return del([paths.css + '/**']).then(paths => {
@@ -69,9 +57,7 @@ gulp.task('clean-css', function () {
     });
 });
 
-gulp.task('dist-css', function (callback) {
-    return sequence('clean-css', 'sass', 'minify-css')(callback);
-});
+gulp.task('dist-css', gulp.series('clean-css', 'minify-css'));
 
 gulp.task('concat-js', function () {
     var scriptFiles = [
@@ -100,7 +86,7 @@ gulp.task('uglify-js', function () {
         .pipe(gulp.dest(paths.js));
 });
 
-gulp.task('javascripts', ['concat-js', 'uglify-js']);
+gulp.task('javascripts', gulp.series('concat-js', 'uglify-js'));
 
 gulp.task('clean-js', function () {
     return del([paths.js + '/**']).then(paths => {
@@ -108,9 +94,7 @@ gulp.task('clean-js', function () {
     });
 });
 
-gulp.task('dist-js', function (callback) {
-    return sequence('clean-js', 'javascripts')(callback);
-});
+gulp.task('dist-js', gulp.series('clean-js', 'javascripts'));
 
 
 gulp.task('fonts', function () {
@@ -124,9 +108,7 @@ gulp.task('clean-fonts', function () {
     });
 });
 
-gulp.task('dist-fonts', function (callback) {
-    return sequence('clean-fonts', 'fonts')(callback);
-});
+gulp.task('dist-fonts',  gulp.series('clean-fonts', 'fonts'));
 
 gulp.task('translate', function () {
 
@@ -149,9 +131,7 @@ gulp.task('clean-languages', function() {
     });
 });
 
-gulp.task('dist-languages', function(callback) {
-    return sequence('clean-languages', 'translate')(callback);
-});
+gulp.task('dist-languages', gulp.series('clean-languages', 'translate'));
 
 gulp.task('copy-wp', function () {
     var wpFiles = [
@@ -169,9 +149,7 @@ gulp.task('copy-wp', function () {
         .pipe(gulp.dest(paths.build));
 });
 
-gulp.task('dist-wp', function (callback) {
-    return sequence('clean-build', 'copy-wp')(callback);
-});
+gulp.task('dist-wp', gulp.series('copy-wp'));
 
 gulp.task('clean-build', function () {
     return del([paths.build + '/**']).then(paths => {
@@ -185,9 +163,9 @@ gulp.task('clean-dist', function () {
     });
 });
 
-gulp.task('clean', ['clean-css', 'clean-js', 'clean-fonts', 'clean-languages', 'clean-build', 'clean-dist']);
+gulp.task('clean', gulp.series('clean-css', 'clean-js', 'clean-fonts', 'clean-languages', 'clean-build', 'clean-dist'));
 
-gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp'], function () {
+gulp.task('dist-prod', gulp.series('clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp', function dist_prod () {
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',
@@ -201,9 +179,9 @@ gulp.task('dist-prod', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist
         .pipe(zip(conf.themeZipName))
         .pipe(gulp.dest(paths.dist));
 
-});
+}));
 
-gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp'], function () {
+gulp.task('dist-dev', gulp.series('clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-languages', 'dist-wp', function dist_dev () {
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',
@@ -214,22 +192,22 @@ gulp.task('dist-dev', ['clean-dist', 'dist-css', 'dist-js', 'dist-fonts', 'dist-
     return gulp.src(distFiles, { base: './build/' })
         .pipe(zip(conf.themeZipName))
         .pipe(gulp.dest(paths.dist));
-});
+}));
 
-gulp.task('copy-docker', ['dist-dev'], function (callback) {
+gulp.task('copy-docker', gulp.series('dist-dev', function copy_docker (callback) {
     exec('docker cp ' + paths.dist + '/' + conf.themeZipName + ' '
         + docker.wpContainerName + ':' + docker.themeFile, function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);
             callback(err);
         });
-});
+}));
 
-gulp.task('dist-docker', ['copy-docker'], function (callback) {
+gulp.task('dist-docker', gulp.series('copy-docker', function dist_docker (callback) {
     exec('docker run --volumes-from ' + docker.wpContainerName + ' --network container:' + docker.wpContainerName
         + ' ' + docker.wpcli_image + ' theme install ' + docker.themeFile + ' --force --activate', function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);
             callback(err);
         });
-});
+}));

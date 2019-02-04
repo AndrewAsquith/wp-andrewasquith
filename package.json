@@ -23,17 +23,17 @@
   "homepage": "https://github.com/AndrewAsquith/wp-andrewasquith#readme",
   "devDependencies": {
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
-    "gulp-clean-css": "^3.9.4",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-cli": "^2.0.1",
     "gulp-concat": "^2.6.1",
-    "gulp-plumber": "^1.2.0",
-    "gulp-rename": "^1.2.3",
-    "gulp-sass": "^4.0.1",
-    "gulp-sequence": "^1.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
-    "gulp-wp-pot": "^2.3.1",
-    "gulp-zip": "^4.1.0"
-  }
+    "gulp-uglify": "^3.0.1",
+    "gulp-wp-pot": "^2.3.3",
+    "gulp-zip": "^4.2.0"
+  },
+  "dependencies": {}
 }
