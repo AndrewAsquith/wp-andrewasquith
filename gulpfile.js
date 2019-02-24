@@ -9,7 +9,6 @@ var concat = require('gulp-concat');
 var del = require('del');
 var zip = require('gulp-zip');
 var uglify = require('gulp-uglify');
-
 var conf = require('./gulp-config.json');
 var paths = conf.paths;
 var docker = conf.docker;
@@ -28,16 +27,10 @@ gulp.task('sass', function () {
     return stream;
 });
 
-gulp.task('animate_css', function() {
-    return gulp.src(paths.vendor + '/animate.css/**/*.css')
-    .pipe(sourcemaps.init({ loadMaps: true }))
-        .pipe(concat('animate.css'))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.css));
-});
 
-gulp.task('minify-css',gulp.series('sass','animate_css', function minify_css () {
-    var cssFiles = [paths.css + '/theme.css', paths.css + '/animate.css'];
+
+gulp.task('minify-css',gulp.series('sass', function minify_css () {
+    var cssFiles = [paths.css + '/theme.css'];
 
     return gulp.src(cssFiles )
         
@@ -61,8 +54,8 @@ gulp.task('dist-css', gulp.series('clean-css', 'minify-css'));
 
 gulp.task('concat-js', function () {
     var scriptFiles = [
-        paths.vendor + '/popper/popper.js',
-        paths.vendor + '/bootstrap4/js/bootstrap.js',
+        'node_modules/popper.js/dist/umd/popper.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
         paths.vendor + '/underscores/js/skip-link-focus-fix.js'
     ];
     return gulp.src(scriptFiles)
@@ -74,8 +67,8 @@ gulp.task('concat-js', function () {
 
 gulp.task('uglify-js', function () {
     var scriptFiles = [
-        paths.vendor + '/popper/popper.js',
-        paths.vendor + '/bootstrap4/js/bootstrap.js',
+        'node_modules/popper.js/dist/umd/popper.js',
+        'node_modules/bootstrap/dist/js/bootstrap.js',
         paths.vendor + '/underscores/js/skip-link-focus-fix.js'
     ];
     return gulp.src(scriptFiles)
@@ -98,7 +91,7 @@ gulp.task('dist-js', gulp.series('clean-js', 'javascripts'));
 
 
 gulp.task('fonts', function () {
-    return gulp.src(paths.vendor + '/fontawesome5/webfonts/**/*.{eot,svg,ttf,woff,woff2}')
+    return gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*.{eot,svg,ttf,woff,woff2}')
         .pipe(gulp.dest(paths.font));
 });
 
@@ -171,7 +164,6 @@ gulp.task('dist-prod', gulp.series('clean-dist', 'dist-css', 'dist-js', 'dist-fo
         '!' + paths.js + '/theme.js',
         '!' + paths.js + '/theme.min.js.map',
         '!' + paths.css + '/theme.css',
-        '!' + paths.css + '/animate.css',
         '!' + paths.css + '/theme.min.css.map'
     ];
 
@@ -185,8 +177,7 @@ gulp.task('dist-dev', gulp.series('clean-dist', 'dist-css', 'dist-js', 'dist-fon
     var distFiles = [
         paths.build + '/**/*',
         '!' + paths.js + '/theme.js',
-        '!' + paths.css + '/theme.css',
-        '!' + paths.css + '/animate.css'
+        '!' + paths.css + '/theme.css'
     ];
 
     return gulp.src(distFiles, { base: './build/' })
