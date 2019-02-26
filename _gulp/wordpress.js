@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const config = require('./_config.json');
 var wpPot = require('gulp-wp-pot');
 
-gulp.task('wp:languages', function () {
+gulp.task('wp:languages', function wp_languages () {
 
     var phpFiles = ['./*.php',
         './inc/**/*.php',
@@ -17,7 +17,7 @@ gulp.task('wp:languages', function () {
         .pipe(gulp.dest(config.paths.build + '/languages/andrewasquith.pot'));
 });
 
-gulp.task('build:wp', gulp.series('wp:languages', function () {
+gulp.task('build:wp', gulp.series('wp:languages', function build_wp () {
     var wpFiles = [
         './style.css',
         './LICENSE',
