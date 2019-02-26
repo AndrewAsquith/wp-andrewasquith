@@ -8,13 +8,13 @@ function andrewasquith_scripts() {
     $theme_version = $theme->get('Version');
 
     //version for cache busting
-    $css_version = $theme_version . '.' . filemtime(get_template_directory() . '/css/theme.min.css');
-    $js_version = $theme_version . '.' . filemtime(get_template_directory() . '/js/theme.min.js'); 
+    $css_version = $theme_version . '.' . filemtime(get_template_directory() . '/css/theme.css');
+    $js_version = $theme_version . '.' . filemtime(get_template_directory() . '/js/theme.js'); 
 
-	wp_enqueue_style( 'andrewasquith-style', get_stylesheet_directory_uri() . '/css/theme.min.css', array(), $css_version );
+	wp_enqueue_style( 'andrewasquith-style', get_stylesheet_directory_uri() . '/css/theme.css', array(), $css_version );
 
     //need jquery for BS4
-    wp_enqueue_script('andrewasquith-scripts', get_template_directory_uri() . '/js/theme.min.js', array('jquery'), $js_version);
+    wp_enqueue_script('andrewasquith-scripts', get_template_directory_uri() . '/js/theme.js', array('jquery'), $js_version);
 
 //	wp_enqueue_script( 'andrewasquith-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
