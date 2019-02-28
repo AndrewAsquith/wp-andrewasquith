@@ -24,7 +24,7 @@ function devscripts() {
 
     return gulp.src(scriptFiles)
         .pipe(sourcemaps.init())
-        .pipe(concat('site.js'))
+        .pipe(concat('theme.js'))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(config.paths.build + '/js'));
 }
@@ -32,7 +32,7 @@ function devscripts() {
 function prodscripts() {
 
     return gulp.src(scriptFiles)
-        .pipe(concat('site.js'))
+        .pipe(concat('theme.js'))
         .pipe(uglify())
         .pipe(gulp.dest(config.paths.build+ '/js'));
 }
