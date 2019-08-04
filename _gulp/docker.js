@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 
 gulp.task('docker:copy', function copy_docker (callback) {
     return exec('docker cp ' + config.paths.dist + '/' + config.themeZipName + ' '
-        + conf.docker.wpContainerName + ':' + config.docker.themeFile, function (err, stdout, stderr) {
+        + config.docker.wpContainerName + ':' + config.docker.themeFile, function (err, stdout, stderr) {
             console.log(stdout);
             console.log(stderr);
             callback(err);
