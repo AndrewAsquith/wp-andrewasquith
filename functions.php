@@ -55,6 +55,12 @@ require $includes_folder . 'template-tags.php';
  */
 require $includes_folder . 'template-functions.php';
 
+
+/** 
+ * Blocks
+ */
+require $includes_folder . 'blocks.php';
+
 /**
  * Customizer additions.
  */

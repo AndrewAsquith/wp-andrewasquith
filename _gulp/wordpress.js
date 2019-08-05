@@ -24,6 +24,7 @@ gulp.task('build:wp', gulp.series('wp:languages', function build_wp () {
         './screenshot.png',
         './*.php',
         './inc/**/*',
+        './blocks/**/*',
         './template-parts/**/*',
         './page-templates/**/*.php',
         './languages/**/*'
