@@ -15,6 +15,8 @@
 	 */
 	var __ = wp.i18n.__;
 
+	var InnerBlocks = wp.editor.InnerBlocks;
+
 	/**
 	 * Every block starts by registering a new block type definition.
 	 * @see https://wordpress.org/gutenberg/handbook/block-api/
@@ -30,7 +32,7 @@
 		 * Blocks are grouped into categories to help users browse and discover them.
 		 * The categories provided by core are `common`, `embed`, `formatting`, `layout` and `widgets`.
 		 */
-		category: 'widgets',
+		category: 'layout',
 
 		/**
 		 * Optional block extended support features.
@@ -50,9 +52,9 @@
 		 */
 		edit: function( props ) {
 			return el(
-				'p',
+				'section',
 				{ className: props.className },
-				__( 'Hello from the editor!' )
+				el ( InnerBlocks, null )
 			);
 		},
 
@@ -63,11 +65,11 @@
 		 *
 		 * @return {Element}       Element to render.
 		 */
-		save: function() {
+		save: function( props ) {
 			return el(
-				'p',
-				{},
-				__( 'Hello from the saved content!' )
+				'section',
+				{ className: props.className },
+				el( InnerBlocks.Content, null )
 			);
 		}
 	} );

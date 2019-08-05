@@ -25,6 +25,7 @@ function section_block_init() {
                         'wp-blocks',
                         'wp-i18n',
                         'wp-element',
+                        'wp-editor',
                 ),
                 $theme_version
         );
@@ -34,7 +35,7 @@ function section_block_init() {
                 'section-block-editor',
                 get_template_directory_uri() . "/blocks/$editor_css",
                 array(
-                        'wp-blocks',
+                        'wp-edit-blocks',
                 ),
                 $theme_version
         );
