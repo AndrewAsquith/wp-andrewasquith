@@ -40,20 +40,10 @@ function section_block_init() {
                 $theme_version
         );
 
-        $style_css = 'section/style.css';
-        wp_register_style(
-                'section-block',
-                get_template_directory_uri() . "/blocks/$style_css",
-                array(
-                        'wp-blocks',
-                ),
-                $theme_version
-        );
 
         register_block_type( 'andrewasquith/section', array(
                 'editor_script' => 'section-block-editor',
                 'editor_style'  => 'section-block-editor',
-                'style'         => 'section-block',
         ) );
 }
 add_action( 'init', 'section_block_init' );

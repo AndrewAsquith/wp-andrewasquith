@@ -40,20 +40,10 @@ function col_block_init() {
                 $theme_version
         );
 
-        $style_css = 'col/style.css';
-        wp_register_style(
-                'col-block',
-                get_template_directory_uri() . "/blocks/$style_css",
-                array(
-                        'wp-blocks',
-                ),
-                $theme_version
-        );
 
         register_block_type( 'andrewasquith/col', array(
                 'editor_script' => 'col-block-editor',
                 'editor_style'  => 'col-block-editor',
-                'style'         => 'col-block',
         ) );
 }
 add_action( 'init', 'col_block_init' );
