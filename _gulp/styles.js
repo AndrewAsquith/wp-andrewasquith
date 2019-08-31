@@ -5,7 +5,8 @@ const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const autoprefixer = require('gulp-autoprefixer');
 
-var env = process.env.NODE_ENV || 'development';
+require('dotenv').config();
+var env = process.env.WORDPRESS_ENV || 'development';
 
 gulp.task('build:styles', function build_styles() {
     if (env == "production") {

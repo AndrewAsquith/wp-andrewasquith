@@ -4,7 +4,8 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 const sourcemaps = require('gulp-sourcemaps');
 
-var env = process.env.NODE_ENV || 'development';
+require('dotenv').config();
+var env = process.env.WORDPRESS_ENV || 'development';
 
 var scriptFiles = [
     'node_modules/popper.js/dist/umd/popper.js',
