@@ -54,9 +54,7 @@
 			return el(
 				'div',
 				{ className: props.className },
-				el ( InnerBlocks, {
-					allowedBlocks: ['andrewasquith/col']
-				} )
+				el ( InnerBlocks, null )
 			);
 		},
 
