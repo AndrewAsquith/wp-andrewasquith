@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Andrew Asquith
 Author URI: http://goaa.ca/me
 Description: Description
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: andrewasquith
@@ -17,13 +17,26 @@ andrewasquith is based on Underscores https://underscores.me/, (C) 2012-2017 Aut
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 
 andrewasquith incorporates:
- * popper.js  Copyright (C) Federico Zivolo 2018
- * Distributed under the MIT License (license terms are at http://opensource.org/licenses/MIT).
-
- * Bootstrap v4.1.0 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  
+ * Bootstrap4 https://getbootstrap.com/
+ * Copyright (C) 2011-2019 Twitter, Inc., Copyright (C) 2011-2019 The Bootstrap Authors
+ * Distributed under the MIT License (https://opensource.org/licenses/MIT)
+
+ * Popper.js https://popper.js.org/
+ * Copyright (C) 2016 Federico Zivolo and contributors
+ * Distributed under the MIT License (https://opensource.org/licenses/MIT)
+
+ * Font Awesome Free https://fontawesome.com/
+ * Copyright (C) Fonticons, Inc.
+ * Distributed under the Font Awesome Free License (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
+
+ * Animate.css https://daneden.github.io/animate.css/
+ * Copyright (C) 2019 Daniel Eden
+ * Distributed under the MIT License (https://opensource.org/licenses/MIT)
+
+ * normalize.css https://necolas.github.io/normalize.css/
+ * Copyright (C) 2012-2016 Nicolas Gallagher and Jonathan Neal
+ * Distributed under the MIT License (https://opensource.org/licenses/MIT)
 
 */
 
